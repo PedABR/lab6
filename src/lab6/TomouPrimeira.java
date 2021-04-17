@@ -9,7 +9,12 @@ public class TomouPrimeira implements Situacao {
         if (dias >= 20) {
             pessoa.setSituacao(new HabilitadaSegundaDose());
         } else {
-            dias += 7;
+            dias += 10;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Tomou primeira dose";
     }
 }
