@@ -1,7 +1,5 @@
 package lab6;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Scanner;
 
 public class Sistema {
@@ -23,7 +21,7 @@ public class Sistema {
             String opcao = sc.nextLine();
             int cpf;
             switch (opcao) {
-                case "C":
+                case "C" -> {
                     System.out.print("cpf: ");
                     cpf = sc.nextInt();
                     sc.nextLine();
@@ -37,24 +35,26 @@ public class Sistema {
                     sc.nextLine();
                     System.out.print("email: ");
                     String email = sc.nextLine();
+                    System.out.print("endereco: ");
+                    String endereco = sc.nextLine();
                     System.out.print("telefone: ");
                     int telefone = sc.nextInt();
                     sc.nextLine();
                     System.out.print("profissao: ");
                     String profissao = sc.nextLine();
-                    governo.cadastraPessoa(nome, idade, cpf, numeroCartaoSus, email, telefone, profissao);
-                    break;
-                case "E":
+                    governo.cadastraPessoa(nome, idade, cpf, numeroCartaoSus, email, endereco, telefone, profissao);
+                }case "E" -> {
                     System.out.print("cpf: ");
                     cpf = sc.nextInt();
                     sc.nextLine();
                     System.out.println("(N)ome" + '\n' +
-                                        "(I)dade" + '\n' +
-                                        "(E)mail" + '\n' +
-                                        "(n)umero do cartão do sus" + '\n' +
-                                        "(T)elefone" + '\n' +
-                                        "(P)rofissao" + '\n' +
-                                        "(A)dicionar comorbidade");
+                            "(I)dade" + '\n' +
+                            "(E)mail" + '\n' +
+                            "(e)ndereco" + '\n' +
+                            "(n)umero do cartão do sus" + '\n' +
+                            "(T)elefone" + '\n' +
+                            "(P)rofissao" + '\n' +
+                            "(A)dicionar comorbidade");
                     String op = sc.nextLine();
                     switch (op) {
                         case "N" -> {
@@ -69,6 +69,10 @@ public class Sistema {
                         case "E" -> {
                             System.out.print("Novo email: ");
                             governo.editaEmail(cpf, sc.nextLine());
+                        }
+                        case "e" -> {
+                            System.out.print("Novo endereco: ");
+                            governo.editaEndereco(cpf, sc.nextLine());
                         }
                         case "n" -> {
                             System.out.print("Novo numero do cartao do sus: ");
@@ -89,11 +93,10 @@ public class Sistema {
                             governo.adicionaComorbidade(cpf, sc.nextLine());
                         }
                     }
-                    break;
-                case "e":
+                }case "e" -> {
                     System.out.println("(I)dade minima" + '\n' +
-                                        "(A)dicionar profissao prioritaria" + '\n' +
-                                        "(a)dicionar comorbidade prioritaria");
+                            "(A)dicionar profissao prioritaria" + '\n' +
+                            "(a)dicionar comorbidade prioritaria");
                     String op2 = sc.nextLine();
                     switch (op2) {
                         case "I" -> {
@@ -110,23 +113,18 @@ public class Sistema {
                             governo.adicionaComorbidade(sc.nextLine());
                         }
                     }
-                case "A":
+                }case "A" -> {
                     governo.atualizaSituacao();
-                    break;
-                case "M":
+                } case "M" -> {
                     System.out.print("cpf: ");
                     cpf = sc.nextInt();
                     sc.nextLine();
                     System.out.println(governo.mostraPessoa(cpf));
-                    break;
-                case "m":
+                }case "m" -> {
                     System.out.println(governo.toString());
-                    break;
-                case "S":
+                }case "S" -> {
                     cond = false;
-                    break;
-                default:
-                    break;
+                }
             }
         }
     }

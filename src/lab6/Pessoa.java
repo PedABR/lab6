@@ -15,6 +15,8 @@ public class Pessoa {
 
     private String email;
 
+    public String endereco;
+
     private int telefone;
 
     private String profissao;
@@ -25,12 +27,13 @@ public class Pessoa {
 
     private Situacao situacao;
 
-    public Pessoa(String nome, int idade, int cpf, int numeroCartao, String email, int telefone, String profissao) {
+    public Pessoa(String nome, int idade, int cpf, int numeroCartao, String email, String endereco, int telefone, String profissao) {
         this.nome = nome;
         this.idade = idade;
         this.cpf = cpf;
         this.numeroCartao = numeroCartao;
         this.email = email;
+        this.endereco = endereco;
         this.telefone = telefone;
         this.profissao = profissao;
         this.comorbidades = new HashSet<>();
@@ -74,6 +77,10 @@ public class Pessoa {
         this.email = email;
     }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
     public void setIdade(int idade) {
         this.idade = idade;
     }
@@ -101,6 +108,7 @@ public class Pessoa {
                 "Cpf: " + cpf + '\n' +
                 "NumeroCartao: " + numeroCartao + '\n' +
                 "Email: " + email + '\n' +
+                "Endereco: " + endereco + '\n' +
                 "Telefone: " + telefone + '\n' +
                 "Profissao: " + profissao + '\n' +
                 "Comorbidades: " + comorbidades + '\n' +

@@ -22,8 +22,8 @@ public class Governo {
         this.filaVacinacao = new HashMap<>();
     }
 
-    public void cadastraPessoa(String nome, int idade, int cpf, int numeroCartao, String email, int telefone, String profissao) {
-        filaVacinacao.put(cpf,new Pessoa(nome, idade, cpf, numeroCartao, email, telefone, profissao));
+    public void cadastraPessoa(String nome, int idade, int cpf, int numeroCartao, String email, String endereco, int telefone, String profissao) {
+        filaVacinacao.put(cpf,new Pessoa(nome, idade, cpf, numeroCartao, email, endereco, telefone, profissao));
     }
 
     public void editaNome(int cpf, String novoValor) {
@@ -40,6 +40,10 @@ public class Governo {
 
     public void editaEmail(int cpf, String novoValor) {
         filaVacinacao.get(cpf).setEmail(novoValor);
+    }
+
+    public void editaEndereco(int cpf, String novoValor) {
+        filaVacinacao.get(cpf).setEndereco(novoValor);
     }
 
     public void editaTelefone(int cpf, int novoValor) {
